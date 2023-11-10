@@ -1,0 +1,18 @@
+---
+import Card from "../components/Card.astro";
+import CheckBox from "../components/CheckBox";
+import State from "../components/State";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Welcome to Astro.">
+  <!-- Using directly a React component -->
+  <State client:visible />
+  <!-- Using Astro component which use a React component -->
+  <Card />
+  <!-- CheckBox -->
+  <!-- Using directly a React component -->
+  <CheckBox client:visible />
+  <!-- Using Astro component which use a React component -->
+  <!-- <Card /> -->
+</Layout>

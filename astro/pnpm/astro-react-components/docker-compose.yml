@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  web:
+    image: invasi0m/pnpm-alpine:latest
+    container_name: pnpm-alpine
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    ports:
+      - 8080:8080
+      - 4321:4312
+    volumes:
+      - ./app:/app
+    healthcheck:
+      test: ["CMD-SHELL", "pnpm -v"]
+      interval: 2s
+      timeout: 5s
+      retries: 5
