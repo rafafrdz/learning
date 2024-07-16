@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  web:
+    image: invasi0m/pnpm:latest
+    container_name: react-exercises
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    ports:
+      - 8080:8080
+      - 3000:3000
+    environment:
+      - TEST=test
+      # - NODE_ENV=production # discomment this in order to get a production environment
+    volumes:
+      - ./app:/app
+    healthcheck:
+      test: ["CMD-SHELL", "pnpm -v"]
+      interval: 2s
+      timeout: 5s
+      retries: 5
